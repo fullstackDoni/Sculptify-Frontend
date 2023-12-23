@@ -25,13 +25,14 @@ export class RegisterComponent {
     console.log('Password:', this.passwordHash);
     console.log('FullName:', this.fullName);
     console.log('AvatarUrl:', this.avatarUrl);
-    const formData = new FormData();
-    formData.append('email', this.email);
-    formData.append('password', this.passwordHash);
-    formData.append('fullName', this.fullName);
-    formData.append('avatarUrl', this.avatarUrl);
+    const doc = {
+      email: this.email,
+      password: this.passwordHash,
+      fullName: this.fullName,
+      avatarUrl: this.avatarUrl
+    };
 
-    this.http.post('http://localhost:4444/register', formData).subscribe(
+    this.http.post('http://localhost:4444/register', doc).subscribe(
       (response) => {
         console.log(response);
       },
