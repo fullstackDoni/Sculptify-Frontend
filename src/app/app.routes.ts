@@ -12,6 +12,8 @@ import {PostUpdateComponent} from "./post-update/post-update.component";
 import {PostDeleteComponent} from "./post-delete/post-delete.component";
 import {PostComponent} from "./post/post.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
+import {LogoutComponent} from "./logout/logout.component";
+import {AuthService} from "./auth.service";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/post', pathMatch: 'full'},
@@ -21,6 +23,7 @@ export const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'about-us', component: AboutUsComponent},
+  {path: 'logout', component: LogoutComponent},
   {path: 'post-update/:id', component: PostUpdateComponent},
   {path: 'post-delete/:id', component: PostDeleteComponent},
   {path: 'post-details/:id', component: PostDetailsComponent},
@@ -30,6 +33,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes), HttpClientModule,FormsModule,CommonModule,RouterLink],
   exports: [RouterModule],
+  providers: [AuthService]
 })
 export class AppRoutingModule {
 }

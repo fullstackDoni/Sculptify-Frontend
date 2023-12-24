@@ -13,7 +13,7 @@ import {CommonModule} from "@angular/common";
 })
 
 export class ProfileComponent {
-  user: any;
+  user: any| null = null;
   _id: string = '';
   fullName: string = '';
   email: string = '';
@@ -37,8 +37,8 @@ export class ProfileComponent {
     this.http.get('http://localhost:4444/me', {headers}).subscribe(
       (response: any) => {
         console.log("User", response);
-        this.user = response.user;
-      },
+        this.user = response;
+        },
       (error: any) => {
         console.error(error);
       }
