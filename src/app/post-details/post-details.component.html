@@ -1,0 +1,11 @@
+<div *ngIf="posts">
+  <h2>{{ posts.title }}</h2>
+  <img [src]="posts.imageUrl" class="img-fluid" alt="Card Image" width="450" height="150">
+  <p>{{ posts.body }}</p>
+  <p>{{ posts.text }}</p>
+  <br><br>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Комментарий:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</div>
