@@ -16,38 +16,38 @@
       <label for="imageUrl" class="form-label">Image URL</label>
       <input type="text" class="form-control" id="imageUrl" [(ngModel)]="imageUrl" name="imageUrl">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Добавить</button>
   </form>
-
 
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>twitter</td>
+    <tr *ngFor="let post of posts; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ post.title }}</td>
+      <td>{{ post.text }}</td>
+      <td>{{ post.tags }}</td>
+      <td>
+        <a [routerLink]="['/post-update', post._id]" class="btn btn-secondary">Edit</a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger">
+          Delete
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
+
 
